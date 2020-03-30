@@ -1,10 +1,8 @@
-pipeline {
-    agent { docker { image "php" } }
-    stages {
-        stage('build') {
-            steps {
-                bat "php --version"
-            }
+node('docker') {
+    checkout scm
+    stage('Build') {
+        docker.image('php').inside {
+            sh 'php --version'
         }
     }
 }
