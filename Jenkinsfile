@@ -1,8 +1,10 @@
-node('docker') {
-    checkout scm
-    stage('Build') {
-        docker.image('php').inside {
-            sh 'php --version'
+pipeline {
+    agent any 
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo 'Hello world!' 
+            }
         }
     }
 }
